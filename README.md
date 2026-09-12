@@ -18,20 +18,21 @@ Arduino library for the I2C DS1682 elapsed time monitor.
 
 **Experimental, work in progress**
 
-This library is to use DS1682 elapsed time monitor.
+This library is to use the I2C DS1682 from an Arduino.
 
 The DS1682 is an elapsed time monitor with an internal calibrated clock.
 It also features an internal EEPROM to keep the data in case of a power loss.
 
 The DS1682 reads the state of the EVENT pin, HIGH => clock runs, LOW => pause,
-to track the total time e.g. to track the total run time of a motor.
-The maximum value is 32 bit in quarter seconds => ~34 year. 
+to track e.g. the total run time of a motor.
+The maximum value is 32 bit in quarter seconds => ~34 year.
 Furthermore the device counts the number of times the EVENT pin goes HIGH/LOW
-(17 bit counter = 131072 max).
-Finally the device has an ALARM register and an ALARM pin (polarity can be configured) 
+(17 bit counter = 131.071 max).
+Finally the device has an ALARM register and an ALARM pin
 that signals if the defined run time in the register is reached.
+The polarity of the ALARM pin can be configured.
 
-Applications for the DS1682 include (but not limited to) time-of-use warranty, 
+Applications for the DS1682 include (but are not limited to) time-of-use,
 getting an alarm when (re)calibration or preventive maintenance is needed.
 
 The DS1682 library is not tested with hardware yet.
@@ -43,7 +44,7 @@ Feedback as always is welcome.
 
 ### Warning
 
-_Do not apply this product to safety protection devices or emergency stop equipment, 
+_Do not apply this product to safety protection devices or emergency stop equipment,
 and any other applications that may cause personal injury due to the product's failure._
 
 
@@ -106,7 +107,7 @@ No compatibles known.
 ### I2C Address
 
 The device has a fixed I2C address of 0x6A (106) so only one device per I2C bus can be used.
-The I2C communication supports 3-5V so any 3.3V MCU should be able to connect.
+The I2C communication supports 2.5-5.0V so any 3.3V MCU should be able to connect.
 Do not forget appropriate pull up resistors on the I2C SDA and SCL lines.
 
 If one needs more devices there are some options.
@@ -122,15 +123,15 @@ It is unclear what effect this has on the lifetime and quality of the device.
 
 Sometimes you need to control more devices than possible with the default
 address range the device provides.
-This is possible with an I2C multiplexer e.g. TCA9548 which creates up 
-to eight channels (think of it as I2C subnets) which can use the complete 
-address range of the device. 
+This is possible with an I2C multiplexer e.g. TCA9548 which creates up
+to eight channels (think of it as I2C subnets) which can use the complete
+address range of the device.
 
-Drawback of using a multiplexer is that it takes more administration in 
-your code e.g. which device is on which channel. 
+Drawback of using a multiplexer is that it takes more administration in
+your code e.g. which device is on which channel.
 This will slow down the access, which must be taken into account when
 deciding which devices are on which channel.
-Also note that switching between channels will slow down other devices 
+Also note that switching between channels will slow down other devices
 too if they are behind the multiplexer.
 
 - https://github.com/RobTillaart/TCA9548
@@ -143,7 +144,7 @@ See example **TCA9548_demo_DS1682.ino**
 
 |  Clock     |  time (us)  |  Notes  |
 |:----------:|:-----------:|:--------|
-|   100 KHz  |             |  default 
+|   100 KHz  |             |  default
 |   200 KHz  |             |
 |   300 KHz  |             |
 |   400 KHz  |             |  max datasheet
@@ -205,7 +206,7 @@ See datasheet for details.
 Datasheet - page 9
 
 The elapsed time counter (ETC) is controlled by the status of the EVENT pin.
-When EVENT pin is HIGH the clock is running, when the EVENT line is LOW 
+When EVENT pin is HIGH the clock is running, when the EVENT line is LOW
 the clock is pausing.
 
 - **uint32_t getElapsedSeconds()** returns seconds of runtime (QSEC/4).
@@ -259,7 +260,7 @@ These functions need to be called twice to be effective!
 - add examples
   - alarm
   - EEPROM
-  - reset 
+  - reset
 - add unit tests (if possible)
 
 #### Wont

@@ -1,7 +1,7 @@
 //
 //    FILE: DS1682_demo.ino
 //  AUTHOR: Rob Tillaart
-// PURPOSE: test basic behaviour and performance
+// PURPOSE: test basic behaviour
 //     URL: https://github.com/RobTillaart/DS1682
 
 
