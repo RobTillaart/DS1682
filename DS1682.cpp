@@ -125,7 +125,7 @@ uint32_t DS1682::getEventCounter()
   uint8_t arr[2];
   _request(DS1682_REG_EVENT_COUNT, arr, 2);
   uint32_t value = arr[0] + arr[1] * 256UL;
-  uint8_t ECMSB = getConfig() & 0x01;
+  uint8_t ECMSB = getConfiguration() & 0x01;
   if (ECMSB) value += 0x10000;
   return value;
 }
