@@ -253,6 +253,11 @@ These functions need to be called twice to be effective!
 
 #### Should
 
+- configuration functions
+  - bool setAlarmPolarity(int mode) // LOW = 0; HIGH all others
+  - int getAlarmPolarity()
+  - bool getAlarmFlag();
+  - other on request?
 
 #### Could
 

@@ -17,11 +17,11 @@
 
 //  ERROR CODES
 //  values <> 0 are errors.
-#define DS1682_OK                  0x00
-#define DS1682_CRC_ERROR           0x01
-#define DS1682_NOT_READY           0x10
-#define DS1682_REQUEST_ERROR       0x11
-#define DS1682_EEPROM_ERROR        0x12
+const uint8_t DS1682_OK            = 0x00;
+const uint8_t DS1682_I2C_2         = 0x02;  //  not connected
+const uint8_t DS1682_NOT_READY     = 0x10;
+const uint8_t DS1682_REQUEST_ERROR = 0x11;
+const uint8_t DS1682_EEPROM_ERROR  = 0x12;
 
 
 class DS1682

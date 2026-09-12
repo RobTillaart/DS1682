@@ -26,13 +26,13 @@ DS1682::DS1682(TwoWire *wire)
 {
   _address = 0x6A;
   _wire = wire;
-  _error = 0;
+  _error = DS1682_OK;
 }
 
 bool DS1682::begin()
 {
   //  reset variables
-  _error = 0;
+  _error = DS1682_OK;
 
   if (! isConnected())
   {
@@ -44,7 +44,8 @@ bool DS1682::begin()
 bool DS1682::isConnected()
 {
   _wire->beginTransmission(_address);
-  return (_wire->endTransmission() == 0);
+  _error = _wire->endTransmission();
+  return (_error == DS1682_OK);
 }
 
 uint8_t DS1682::getAddress()
