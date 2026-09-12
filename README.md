@@ -18,10 +18,12 @@ Arduino library for the I2C DS1682 elapsed time monitor.
 
 **Experimental, work in progress**
 
-This library is to use the I2C DS1682 from an Arduino.
+This library is used to communicate with the I2C DS1682 from an Arduino.
 
 The DS1682 is an elapsed time monitor with an internal calibrated clock.
-It also features an internal EEPROM to keep the data in case of a power loss.
+So there is no external clock needed.
+The device also features an internal EEPROM to keep the data in case of a 
+power loss (according to datasheet). 
 
 The DS1682 reads the state of the EVENT pin, HIGH => clock runs, LOW => pause,
 to track e.g. the total run time of a motor.
@@ -35,7 +37,7 @@ The polarity of the ALARM pin can be configured.
 Applications for the DS1682 include (but are not limited to) time-of-use,
 getting an alarm when (re)calibration or preventive maintenance is needed.
 
-The DS1682 library is not tested with hardware yet.
+The DS1682 library is not tested with hardware yet.  
 
 Datasheet: 19-6835; Rev 2; 11/18
 
@@ -88,13 +90,14 @@ Other
 
 ### Tested
 
-TODO: Get hardware and test on Arduino UNO and ESP32
+TODO: Get hardware and test on Arduino UNO and ESP32.
+A breakout board would be useful for testing different platforms.
 
 
 ## Compatibles
 
 The DS1683 is an upgraded version of the DS1682 with password and more
-reset options. Although the pins are the same the register maps and functions
+reset options. Although the pins are the same the registers and functions
 are different so a DS1683 can not be controlled with this library.
 
 _A DS1683 library is on my backlog list, so if time permits_
@@ -136,11 +139,8 @@ too if they are behind the multiplexer.
 
 - https://github.com/RobTillaart/TCA9548
 
-See example **TCA9548_demo_DS1682.ino**
-
 
 ### I2C Performance
-
 
 |  Clock     |  time (us)  |  Notes  |
 |:----------:|:-----------:|:--------|
