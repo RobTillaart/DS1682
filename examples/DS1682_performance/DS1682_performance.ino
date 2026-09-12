@@ -50,7 +50,7 @@ void setup()
     start = micros();
     uint32_t ec = upTimer.getEventCounter();
     stop = micros();
-    Serial.print("EC: ");
+    Serial.print("EC:\t");
     Serial.print(stop - start);
     Serial.print("\t");
     Serial.println(ec);
