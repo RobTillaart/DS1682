@@ -201,8 +201,8 @@ Datasheet - page 9
 
 For ease of use the alarm API works in seconds.
 
-- **int setAlarm(uint32_t alarm)** sets the alarm in seconds, max 1.073.741.823
-- **uint32_t getAlarm()** returns set alarm time in seconds.
+- **int setEventTimeAlarm(uint32_t alarm)** sets the alarm in seconds, max 1.073.741.823
+- **uint32_t getEventTimeAlarm()** returns set alarm time in seconds.
 
 
 ### Read Counters

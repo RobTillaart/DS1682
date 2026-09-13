@@ -51,8 +51,8 @@ public:
 
 
   //  ALARM
-  int      setAlarm(uint32_t alarm);  //  alarm in seconds, max 1.073.741.823
-  uint32_t getAlarm();                //  returns seconds.
+  int      setEventTimeAlarm(uint32_t alarm);  //  alarm in seconds, max 1.073.741.823
+  uint32_t getEventTimeAlarm();                //  returns seconds.
 
 
   //  READ COUNTERS

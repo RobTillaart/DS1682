@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [0.1.1] - 2026-09-13
 - fix #2 address
+- sync / align DS1683
 - minor edits
 
 ## [0.1.0] - 2026-09-11
