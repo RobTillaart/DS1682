@@ -78,7 +78,7 @@ uint8_t DS1682::getConfiguration()
 //
 //  ALARM
 //
-int DS1682::setAlarm(uint32_t alarm)
+int DS1682::setEventTimeAlarm(uint32_t alarm)
 {
   alarm <<= 2;  //  adjust seconds to QSEC
   uint8_t arr[4];
@@ -91,7 +91,7 @@ int DS1682::setAlarm(uint32_t alarm)
   return _error;
 }
 
-uint32_t DS1682::getAlarm()
+uint32_t DS1682::getEventTimeAlarm()
 {
   uint8_t arr[4];
   _request(DS1682_REG_ALARM, arr, 4);
